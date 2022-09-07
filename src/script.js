@@ -1,12 +1,17 @@
 // --- Escuchar Eventos ---
 const h1 = document.querySelector('h1');
+const form = document.querySelector('#form');
 const input1 = document.querySelector('#calculo1');
 const input2= document.querySelector('#calculo2');
 const button= document.querySelector('#btnCalcular');
 const p= document.querySelector('.resultado');
 
+form.addEventListener('submit', btnOnClick);
 
-function btnOnClick() {
+
+function btnOnClick(event) {
+    console.log(event);
+    event.preventDefault(); // Se coloca para que no se recargue la página y modifique la URL.
     let resultado = '';
     if(input1.value == '' && input2.value == '') {
         alert('No se detectaron dígitos, favor ingrese alguno');
